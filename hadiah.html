@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+        }
+        .background{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-image: url("owen-lystrup-boLgiM0qwkg-unsplash.jpg");
+            background-size: cover;
+            z-index: -1;
+        }
+        #img{
+            position: absolute;
+            background-image: url("98234284-6d95-4c8d-ba9c-89e1f9792e75.jpg");
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            z-index: 10;
+            transform: translateY(-100%);
+        }
+        .black{
+            width:100vw;
+            height:100vh;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            z-index: 1;
+            border:8px #ffffff solid;
+        }
+        .orange{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 450px;
+            background-color: #F8A02D;
+            z-index: 2;
+            opacity: 0.5;
+            border-radius: 15px;
+        }
+        .buttons{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            width: 250px;
+            height: 40px;
+        }
+        .btn{
+            position: absolute;
+            width: 250px;
+            height: 40px;
+            border: 1px black solid;
+            background-color: red;
+            border-radius: 40px;
+            color: white;
+            transition: 12ms ease-in-out;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn:hover{
+            cursor: pointer;
+        }
+        .btn:active{
+            transform: scale(0.9);
+        }
+        h3,#num {
+            position: absolute;
+            z-index: 3;
+            color: white;
+            transform: translateY(20px);
+            font-family: 'Montserrat', sans-serif;
+        }
+        p {
+            position: relative;
+            transform: translateY(-70px);
+        }
+        #dotone,#dottwo,#dotthree{
+            position:relative;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            font-size: 30px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let i = 0;
+        const sound = new Audio();
+        sound.src="./2021-09-24_-_Jump_Scare_D_-_www.FesliyanStudios.com.mp3"
+        function clickAmount(){
+            const button=document.getElementsByClassName("btn");
+            i++;
+
+            const span=document.getElementById("num").innerHTML= i;
+
+            if (i==7){
+                const dot=document.getElementById("dotone");
+                dot.style.opacity="1";
+            }
+            else if(i==8){
+                const dotTwo=document.getElementById("dottwo");
+                dotTwo.style.opacity="1";
+            }
+            else if(i==9){
+                const dotThree=document.getElementById("dotthree");
+                dotThree.style.opacity="1";
+            }
+            else if(i==10){
+                const image =document.getElementById("image").id="img";
+                sound.play()
+            };
+        };
+
+    </script>
+    <div class="background">
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="buttons">
+            <button class="btn" onclick="clickAmount()">Klik ini sampai 10 kali!</button>
+            <h3><span id="num">0</span></h3>
+            <p><span id="dotone">. </span><span id="dottwo">. </span><span id="dotthree">.</span></p>
+        </div>
+    </div>
+    <div id="image"></div>
+</body>
+</html>
